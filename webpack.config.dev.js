@@ -19,7 +19,7 @@ const devServer = {
     lazy: false,
 };
 
-const module = {
+const modules = {
     rules: [{
         test: /\.html$/,
         use: ['html-loader'],
@@ -52,7 +52,7 @@ const plugins = [
 module.exports = {
     entry,
     output,
-    module,
-    devServer,
     plugins,
+    devServer,
+    module: modules,
 };
