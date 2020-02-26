@@ -41,9 +41,18 @@ const module = {
     }]
 };
 
+const plugins = [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Santiago Marulanda - Test frontend developer',
+      template: path.resolve(__dirname, 'public/index.html'),
+    }),
+];
+
 module.exports = {
     entry,
     output,
     module,
     devServer,
+    plugins,
 };
