@@ -4,6 +4,7 @@ import { create } from 'react-test-renderer';
 
 import projectInfo from "../../../__mocks__/projectInfoMock";
 import Header from "../../../../components/layout/Header";
+import ProviderMock from "../../../__mocks__/providerMock";
 
 describe('Tests <Header />', () => {
 
@@ -15,13 +16,12 @@ describe('Tests <Header />', () => {
     });
 
     test('Check UI not change', () => {
-        const header = create(<Header headerInfo={headerInfo}/>);
+        const header = create(
+            <ProviderMock>
+                <Header headerInfo={headerInfo}/>
+            </ProviderMock>
+        );
         expect(header.toJSON()).toMatchSnapshot();
-    });
-
-    test('Check props', () => {
-        const wrapper = mount(<Header headerInfo={headerInfo}/>);
-        expect(wrapper.props().headerInfo).toEqual(headerInfo)
     });
 
 });

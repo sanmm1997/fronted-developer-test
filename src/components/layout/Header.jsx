@@ -11,7 +11,7 @@ const Header = ({ headerInfo }) => {
         <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link to="/">
-                    {(headerInfo.brand.name) && <img src={headerInfo.brand.name} alt="Js Love" width="50px"/>}
+                    {(headerInfo.brand.logo) && <img src={headerInfo.brand.logo} alt="Js Love" width="50px"/>}
                 </Link>
                 <button
                     className="navbar-toggler"
