@@ -1,18 +1,40 @@
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
-const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+
 const entry = {
-    app: './src/index.js',
+    modules: [
+        "bootstrap",
+        "dotenv",
+        "dotenv-webpack",
+        "fetch-mock",
+        "md5",
+        "prop-types",
+        "react",
+        "react-dom",
+        "react-redux",
+        "react-router-dom",
+        "react-test-renderer",
+        "redux",
+        "redux-thunk",
+        "sweetalert2",
+    ]
 };
 
 const output = {
     publicPath: '/',
-    filename: '[name].js',
+    library: "[name]",
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
 };
+
+const plugins = [
+    new webpack.DllPlugin({
+        name: "[name]",
+        path: path.join(__dirname, "[name].manifest.json")
+    })
+];
 
 const modules = {
     rules: [{
@@ -39,25 +61,9 @@ const modules = {
     }]
 };
 
-const plugins = [
-    new HtmlWebpackPlugin({
-        template: './public/index.html',
-        filename: './index.html',
-        favicon: './public/redux_icon.ico',
-    }),
-    new Dotenv(),
-    new MiniCssExtractPlugin({
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'css/[name].css'
-    }),
-    new CopyPlugin([
-        { from: './public/.htaccess', to: path.resolve(__dirname, 'dist') },
-    ]),
-];
-
 module.exports = {
     entry,
     output,
     plugins,
-    module: modules,
+    module: modules
 };

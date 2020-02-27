@@ -1,5 +1,5 @@
-export const fetchProjectInfo = async (file = "./../initialState.json") => {
-    const response = await fetch(file);
+export const fetchProjectInfo = async () => {
+    const response = await fetch(`${process.env.BASE_URL_API_PROJECT}`);
     return await response.json();
 };
 
