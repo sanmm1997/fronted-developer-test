@@ -16,6 +16,7 @@ const devServer = {
     hot: true,
     port: 8000,
     lazy: false,
+    historyApiFallback: true,
 };
 
 const modules = {
@@ -31,12 +32,7 @@ const modules = {
         test: /\.css$/,
         use: [
             'style-loader',
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: true
-                }
-            },
+            'css-loader',
             'sass-loader'
         ],
     }, {

@@ -4,9 +4,9 @@ import {Provider} from "react-redux";
 import store from "../store/store";
 
 const App = () => (
-    <Provider
-        store={store}
-    >
+    /* Implement redux store */
+    <Provider store={store}>
+        {/*Router includes Browser and basic Layout for render pages*/}
         <Router />
     </Provider>
 );
