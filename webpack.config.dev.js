@@ -15,7 +15,6 @@ const output = {
 const devServer = {
     hot: true,
     port: 8000,
-    open: true,
     lazy: false,
 };
 
@@ -29,9 +28,17 @@ const modules = {
         use: { loader: 'babel-loader' },
         resolve: { extensions: ['.js', '.jsx'] },
     }, {
-        test: /\.(s*)css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.css$/,
+        use: [
+            'style-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true
+                }
+            },
+            'sass-loader'
+        ],
     }, {
         test: /\.(jpg|png|gift|woff|eot|ttf|svg|mp4|webm)$/,
         use: {
