@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests <Footer /> Check UI not change 1`] = `
+<footer
+  className="text-muted fixed-bottom"
+>
+  <div
+    className="container text-center"
+  >
+    <p
+      className="copy"
+    >
+      Development by Santiago Marulanda
+    </p>
+  </div>
+</footer>
+`;

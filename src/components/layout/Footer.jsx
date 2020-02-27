@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Footer = () => (
-    <div>
-        <h1>Footer</h1>
+const Footer = ({ footerInfo }) => (
+  <footer className="text-muted fixed-bottom">
+    <div className="container text-center">
+      <p className="copy">
+        { footerInfo.copy }
+      </p>
     </div>
+  </footer>
 );
+
+Footer.propTypes = {
+  footerInfo: PropTypes.object
+};
 
 export default Footer;

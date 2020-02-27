@@ -17,10 +17,12 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
+    "react-test-renderer": "^16.13.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -52,7 +54,7 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": [
-      "<rootDir>/src/test/__test__/setup.js"
+      "<rootDir>/src/test/setup.js"
     ],
     "moduleNameMapper": {
       "\\.(scss|css)$": "<rootDir>/src/test/__mocks__/styleMock.js"

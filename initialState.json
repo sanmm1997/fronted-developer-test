@@ -1,0 +1,23 @@
+{
+  "headerInfo": {
+    "brand": {
+      "name": "https://loveisfrontend.com/wp-content/uploads/2020/02/portfolio-logo-1.png",
+      "logo": "http:sdakdshkjhasjkdhas"
+    },
+    "menu": {
+      "links": [{
+        "text": "Inicio",
+        "route": "/"
+      }, {
+        "text": "Empleados",
+        "route": "/staff"
+      }]
+    }
+  },
+  "footerInfo": {
+    "copy": "Development by Santiago Marulanda",
+    "socialmedia": [{
+      "name": "Header"
+    }]
+  }
+}
