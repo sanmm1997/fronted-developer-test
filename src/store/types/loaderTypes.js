@@ -1,0 +1,1 @@
+export const SET_IS_VISIBLE = 'set_is_visible';

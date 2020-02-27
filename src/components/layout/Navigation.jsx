@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
+import './../../assets/styles/components/Navigation.scss';
 
 const Navigation = ({ links }) => {
     return (
@@ -8,9 +9,11 @@ const Navigation = ({ links }) => {
             <ul className="navbar-nav mr-auto">
                 { links.map((link) => {
                     return (
-                        <li className="nav-item active" key={link.text}>
+                        <li className="nav-item" key={link.text}>
                             <NavLink
+                                exact
                                 to={link.route}
+                                activeClassName="active"
                                 className="nav-link"
                             >
                                 { link.text }

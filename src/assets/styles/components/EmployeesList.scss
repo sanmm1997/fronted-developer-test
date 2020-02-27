@@ -1,0 +1,13 @@
+.Employee-list {
+  table-layout: fixed;
+  thead {
+    tr {
+      td {
+        font-weight: bold;
+        &:first-child {
+          width: 5%;
+        }
+      }
+    }
+  }
+}

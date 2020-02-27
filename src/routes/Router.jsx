@@ -3,12 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import routes from "./routes";
 import Layout from "../components/layout/Layout";
+import NotFound from "../components/containers/NotFound";
 
 const Router = () => (
     <BrowserRouter>
-        <Switch>
-            {/* Basic Layout with Header and Footer for render pages */}
-            <Layout>
+        {/* Basic Layout with Header and Footer for render pages */}
+        <Layout>
+            <Switch>
                 {Array.isArray(routes) && (
                     routes.map(route =>
                         <Route
@@ -19,8 +20,9 @@ const Router = () => (
                         />
                     )
                 )}
-            </Layout>
-        </Switch>
+                <Route component={NotFound}/>
+            </Switch>
+        </Layout>
     </BrowserRouter>
 );
 

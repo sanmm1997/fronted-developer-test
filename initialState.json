@@ -2,7 +2,7 @@
   "headerInfo": {
     "brand": {
       "name": "SMM",
-      "logo": "https://loveisfrontend.com/wp-content/uploads/2020/02/portfolio-logo-1.png"
+      "logo": "https://i1.wp.com/www.ux-republic.com/wp-content/uploads/2016/11/logo-redux.png?ssl=1"
     },
     "menu": {
       "links": [{
@@ -15,7 +15,7 @@
     }
   },
   "footerInfo": {
-    "copy": "Development by Santiago Marulanda",
+    "copy": "Developed by Santiago Marulanda",
     "socialmedia": [{
       "name": "Header"
     }]

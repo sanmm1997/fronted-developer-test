@@ -17,6 +17,7 @@ const devServer = {
     hot: true,
     port: 8000,
     lazy: false,
+    disableHostCheck: true,
     historyApiFallback: true,
 };
 
@@ -30,7 +31,7 @@ const modules = {
         use: { loader: 'babel-loader' },
         resolve: { extensions: ['.js', '.jsx'] },
     }, {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         use: [
             'style-loader',
             'css-loader',

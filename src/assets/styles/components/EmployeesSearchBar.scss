@@ -1,0 +1,12 @@
+.Employee-search-bar{
+  input, select {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    &::placeholder {
+      color: #00000054 !important;
+    }
+  }
+
+}

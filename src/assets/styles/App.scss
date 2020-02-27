@@ -1,0 +1,8 @@
+$body-bg: #fff;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import "~bootstrap/scss/bootstrap";
+
+h1, td {
+  font-family: 'Raleway' , serif;
+}

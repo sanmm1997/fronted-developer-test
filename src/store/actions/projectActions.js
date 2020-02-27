@@ -1,5 +1,5 @@
 import { GET_PROJECT_INFO  } from "./../types/projectTypes";
-import {fetchProjectInfo, fetchStaff} from "../../utils/api";
+import {fetchProjectInfo} from "../../utils/api";
 
 export const getProjectInfo = () => async(dispatch) => {
   try {

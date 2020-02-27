@@ -4,6 +4,7 @@ import { getProjectInfo } from "./../../store/actions/projectActions";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import Loader from "./Loader";
 
 const Layout = (props) => {
     const { footerInfo, headerInfo } = props.project;
@@ -14,8 +15,10 @@ const Layout = (props) => {
 
     return (
         <>
+            <Loader />
+
             <Header headerInfo={headerInfo}/>
-                <div className="container">{props.children}</div>
+                {props.children}
             <Footer footerInfo={footerInfo}/>
         </>
     );
