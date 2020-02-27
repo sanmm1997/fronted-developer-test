@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter, Switch, Route } from "react-router-dom";
 
 import routes from "./routes";
-import Layout from "../layout/Layout";
+import Layout from "../components/layout/Layout";
 
 const Router = () => (
     <BrowserRouter>
