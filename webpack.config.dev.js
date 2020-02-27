@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entry = {
@@ -50,6 +51,7 @@ const plugins = [
       title: 'Santiago Marulanda - Test frontend developer',
       template: path.resolve(__dirname, 'public/index.html'),
     }),
+    new Dotenv()
 ];
 
 module.exports = {

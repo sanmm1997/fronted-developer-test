@@ -1,5 +1,5 @@
 import Home from "../components/containers/Home";
-import Staff from "../components/containers/Staff";
+import Employees from "../components/containers/Employees";
 
 export default [{
     id: '1',
@@ -7,6 +7,6 @@ export default [{
     component: Home
 }, {
     id: '2',
-    path: '/staff',
-    component: Staff
+    path: '/employees',
+    component: Employees
 }];

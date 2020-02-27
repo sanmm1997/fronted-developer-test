@@ -1,8 +1,8 @@
 {
   "headerInfo": {
     "brand": {
-      "name": "https://loveisfrontend.com/wp-content/uploads/2020/02/portfolio-logo-1.png",
-      "logo": "http:sdakdshkjhasjkdhas"
+      "name": "SMM",
+      "logo": "https://loveisfrontend.com/wp-content/uploads/2020/02/portfolio-logo-1.png"
     },
     "menu": {
       "links": [{
@@ -10,7 +10,7 @@
         "route": "/"
       }, {
         "text": "Empleados",
-        "route": "/staff"
+        "route": "/employees"
       }]
     }
   },
