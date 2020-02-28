@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 
 const EmployeesForm = (props) => {
     return (
-        <form>
+        <form onSubmit={props.handleSubmit}>
             <div className="form-row mb-3">
                 <input
                     type="hidden"
                     name="id"
-                    value={props.id}
+                    value={props.employee.id || ''}
                     className="form-control"
                 />
                 <div className="col">
@@ -16,7 +16,8 @@ const EmployeesForm = (props) => {
                     <input
                         type="text"
                         name="employee_name"
-                        value={props.employee_name}
+                        onChange={props.handleChange}
+                        value={props.employee.employee_name}
                         className="form-control"
                     />
                 </div>
@@ -25,7 +26,8 @@ const EmployeesForm = (props) => {
                     <input
                         type="text"
                         name="employee_salary"
-                        value={props.employee_salary}
+                        onChange={props.handleChange}
+                        value={props.employee.employee_salary}
                         className="form-control"
                     />
                 </div>
@@ -34,18 +36,13 @@ const EmployeesForm = (props) => {
                     <input
                         type="text"
                         name="employee_age"
-                        value={props.employee_age}
+                        onChange={props.handleChange}
+                        value={props.employee.employee_age}
                         className="form-control"
                     />
                 </div>
             </div>
-            <div className="form-row pt-2 text-center">
-                <div className="col">
-                    <button className="btn btn-success mr-3">Actualizar</button>
-                    <Link to="/employees" className="btn btn-primary">Volver al listado</Link>
-
-                </div>
-            </div>
+            {props.children}
         </form>
     )
 };

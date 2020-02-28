@@ -20,3 +20,18 @@ export const removeEmployee = async () => {
     const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/delete/2`, config);
     return await response.json();
 };
+
+export const storeEmployee = async (employee) => {
+    const config = {
+        method: 'POST',
+        body: JSON.stringify(employee)
+    };
+    const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/create`, config);
+    return await response.json();
+};
+
+
+export const getHomeData = async () => {
+    const response = await fetch(`${process.env.BASE_URL_API_DASHBOARD}`);
+    return await response.json();
+};

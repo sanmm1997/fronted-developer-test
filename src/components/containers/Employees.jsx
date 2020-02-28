@@ -1,20 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
-import { getEmployees, filterEmployees } from "../../store/actions/employeesActions";
+import { getEmployees, filterEmployees, addEmployees } from "../../store/actions/employeesActions";
 import EmployeesList from "../employees/EmployeesList";
 import EmployeesItem from "../employees/EmployeesItem";
 import Container from "../layout/Container";
 import EmployeesSearchBar from "../employees/EmployeesSearchBar";
 import {invalidSearch} from "../../utils/alerts";
+import EmployeesCreateRedirect from "../employees/EmployeesCreateRedirect";
+import {getEmployeesLocalStorage} from "../../utils/localStorage";
+
+const initialSearch = {
+    searchBy: '',
+    value: ''
+};
 
 const Employees = (props) => {
-    const [search, setSearch] = useState({
-        searchBy: '',
-        value: ''
-    });
+    const [search, setSearch] = useState(initialSearch);
 
     useEffect(() => {
         props.getEmployees();
+        props.addEmployees(getEmployeesLocalStorage());
     }, []);
 
     const handleSubmit = (e) => {
@@ -27,6 +32,7 @@ const Employees = (props) => {
     };
 
     const handleClick = (e) => {
+        setSearch(initialSearch);
         props.getEmployees();
     };
 
@@ -36,6 +42,8 @@ const Employees = (props) => {
 
     return (
         <Container title={`Empleados`}>
+            <EmployeesCreateRedirect/>
+
             <div className="row">
                 <div className="col-12">
                     <EmployeesSearchBar
@@ -45,8 +53,9 @@ const Employees = (props) => {
                     />
                 </div>
             </div>
+
             <div className="row">
-                <div className="col-12 text-center">
+                <div className="col-12 text-center Employees-table">
                     <EmployeesList>
                         {(props.employees.list.length > 0)
                             ?
@@ -76,7 +85,8 @@ const mapStateToProps = ({ employeesReducer }) => ({
 
 const mapDispatchToAction = {
     getEmployees,
-    filterEmployees
+    addEmployees,
+    filterEmployees,
 };
 
 export default connect(mapStateToProps, mapDispatchToAction)(Employees);
