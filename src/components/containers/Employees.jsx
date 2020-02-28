@@ -5,6 +5,7 @@ import EmployeesList from "../employees/EmployeesList";
 import EmployeesItem from "../employees/EmployeesItem";
 import Container from "../layout/Container";
 import EmployeesSearchBar from "../employees/EmployeesSearchBar";
+import {invalidSearch} from "../../utils/alerts";
 
 const Employees = (props) => {
     const [search, setSearch] = useState({
@@ -18,21 +19,30 @@ const Employees = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.filterEmployees(search);
+        (!isValidSearch()) ? invalidSearch() : props.filterEmployees(search);
     };
 
     const handleChange = (e) => {
-        setSearch({
-            ...search,
-            [e.target.name]: e.target.value
-        })
+        setSearch({...search, [e.target.name]: e.target.value.trim()})
+    };
+
+    const handleClick = (e) => {
+        props.getEmployees();
+    };
+
+    const isValidSearch = () => {
+        return !(search.searchBy.trim() === "" || search.value.trim() === "")
     };
 
     return (
         <Container title={`Empleados`}>
             <div className="row">
                 <div className="col-12">
-                    <EmployeesSearchBar handleSubmit={handleSubmit} handleChange={handleChange}/>
+                    <EmployeesSearchBar
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange}
+                        handleClick={handleClick}
+                    />
                 </div>
             </div>
             <div className="row">
@@ -40,7 +50,11 @@ const Employees = (props) => {
                     <EmployeesList>
                         {(props.employees.list.length > 0)
                             ?
-                            props.employees.list.map(employee => <EmployeesItem {...employee} key={employee.id} />)
+                            props.employees.list.map(employee =>
+                                <EmployeesItem
+                                    {...employee}
+                                    key={employee.id}
+                                />)
                             :
                             <tr>
                                 <td colSpan="6" className="text-center">

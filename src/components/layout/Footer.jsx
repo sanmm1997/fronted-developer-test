@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Footer = ({ footerInfo }) => (
-  <footer className="text-muted">
+  <footer className="text-muted d-none">
     <div className="container text-center">
       <p className="copy">
         { footerInfo.copy }
