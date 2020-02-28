@@ -2,7 +2,7 @@
 
 exports[`Tests <Footer /> Check UI not change 1`] = `
 <footer
-  className="text-muted"
+  className="text-muted d-none"
 >
   <div
     className="container text-center"
