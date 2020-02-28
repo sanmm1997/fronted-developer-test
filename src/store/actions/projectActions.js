@@ -11,14 +11,3 @@ export const getProjectInfo = () => async(dispatch) => {
 
   }
 };
-
-export const getStaffInfo = () => async (dispatch) => {
-  try {
-    const data = await fetchStaff();
-    console.log(data);
-  } catch (e) {
-
-  } finally {
-
-  }
-};
