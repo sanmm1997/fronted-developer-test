@@ -16,7 +16,7 @@ const entry = {
 };
 
 const output = {
-    publicPath: '/',
+    publicPath: '/fronted-developer-test',
     library: "[name]",
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
