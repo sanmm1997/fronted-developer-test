@@ -8,9 +8,15 @@ export const fetchEmployees = async () => {
     return await response.json();
 };
 
+export const fetchEmployee = async (id) => {
+    const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/employee/${id}`);
+    return await response.json();
+};
+
 export const removeEmployee = async () => {
-    const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/delete/2`, {
+    const config = {
         method: 'DELETE'
-    });
+    };
+    const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/delete/2`, config);
     return await response.json();
 };

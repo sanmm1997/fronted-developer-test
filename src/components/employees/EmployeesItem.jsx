@@ -1,19 +1,16 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import { connect } from 'react-redux';
 import { deleteEmployee } from "../../store/actions/employeesActions";
+import {deleteConfirmation, showResult} from "../../utils/alerts";
+
 import Gravatar from "../Gravatar";
-import {Link} from "react-router-dom";
 import './../../assets/styles/components/EmployeesItem.scss';
-import {deleteConfirmation} from "../../utils/alerts";
 
 const EmployeesItem = (props) => {
-
     const handleClick = () => {
         deleteConfirmation(props.employee_name)
-            .then(res => {
-                if (res.value)
-                    return props.deleteEmployee(props.id);
-            });
+            .then(response => (response.value) && props.deleteEmployee(props.id))
     };
 
     return (
@@ -26,7 +23,7 @@ const EmployeesItem = (props) => {
             <td>{ props.employee_age }</td>
             <td>{ props.employee_salary }</td>
             <td>
-                <Link to={`/employees/${props.id}`} className="btn btn-sm btn-outline-primary" >Editar</Link>
+                <Link to={`/employees/${props.id}/edit`} className="btn btn-sm btn-outline-primary" >Editar</Link>
                 <a onClick={handleClick} className="btn btn-sm btn-outline-danger" >Borrar</a>
             </td>
         </tr>

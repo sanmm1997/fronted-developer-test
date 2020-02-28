@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './../../assets/styles/components/EmployeesSearchBar.scss';
 
-const EmployeesSearchBar = ({ handleSubmit, handleChange }) => {
+const EmployeesSearchBar = ({ handleSubmit, handleChange, handleClick }) => {
     return (
         <form className="Employee-search-bar mb-3" onSubmit={handleSubmit}>
             <div className="form-row">
@@ -29,8 +29,15 @@ const EmployeesSearchBar = ({ handleSubmit, handleChange }) => {
                         placeholder="Ingrese el valor a buscar"
                     />
                 </div>
-                <div className="col-sm-12 col-md-2">
+                <div className="col-sm-12 col-md-1">
                     <button className="btn btn-secondary w-100">Buscar</button>
+                </div>
+                <div className="col-sm-12 col-md-1">
+                    <button
+                        type="buttton"
+                        onClick={handleClick}
+                        className="btn btn-secondary w-100"
+                    >Limpiar</button>
                 </div>
             </div>
         </form>
