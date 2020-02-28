@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {getEmployee, getEmployees} from "../../store/actions/employeesActions";
 import Container from "../layout/Container";
@@ -7,15 +7,15 @@ import Gravatar from "../Gravatar";
 import {Link} from "react-router-dom";
 import notFound from './../../assets/images/404.png';
 
+
 const EmployeesEdit = (props) => {
+    const[employee, setEmployee] = useState({});
+    const hasEmployee = Object.keys(employee).length > 0;
 
     useEffect(() => {
         const {id} = props.match.params;
         props.getEmployee(id);
-    }, [props.employee.list]);
-
-    const employee = props.employee.employee;
-    const hasEmployee = Object.keys(employee).length > 0;
+    }, []);
 
     return (
         <Container title={`Empleado`}>
@@ -27,9 +27,9 @@ const EmployeesEdit = (props) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-12 text-center">
-                            <EmployeesForm {...props.employee.employee}/>
-                        </div>
+                        {/*<div className="col-12 text-center">*/}
+                        {/*    <EmployeesForm {...props.employee.employee}/>*/}
+                        {/*</div>*/}
                     </div>
                 </>
             :

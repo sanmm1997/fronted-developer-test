@@ -19,6 +19,7 @@
   "author": "Santiago Marulanda Molina",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
