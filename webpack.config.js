@@ -10,7 +10,6 @@ const entry = {
 };
 
 const output = {
-    publicPath: '/fronted-developer-test',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
 };
