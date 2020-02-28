@@ -51,6 +51,7 @@ const plugins = [
     new HtmlWebpackPlugin({
       title: 'Santiago Marulanda - Test frontend developer',
       template: path.resolve(__dirname, 'public/index.html'),
+      favicon: './public/redux_icon.ico',
     }),
     new Dotenv()
 ];

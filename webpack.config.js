@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -53,6 +54,12 @@ const plugins = [
     new CopyPlugin([
         { from: './public/.htaccess', to: path.resolve(__dirname, 'dist') },
     ]),
+    new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require('./manifest.json'),
+        scope: 'xyz',
+        sourceType: 'commonjs2'
+    }),
 ];
 
 module.exports = {
