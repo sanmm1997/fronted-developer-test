@@ -1,4 +1,11 @@
-import {ADD_EMPLOYEES, FILTER_EMPLOYEES, GET_EMPLOYEE, GET_EMPLOYEES} from "../types/employeesTypes";
+import {
+    ADD_EMPLOYEES,
+    EDIT_EMPLOYEE,
+    FILTER_EMPLOYEES,
+    GET_EMPLOYEE,
+    GET_EMPLOYEES,
+    SET_EMPLOYEE
+} from "../types/employeesTypes";
 
 const initalState = {
     list: [],
@@ -7,7 +14,7 @@ const initalState = {
 
 const getEmployees = (state, action) => ({
     ...state,
-    list: [...state.list, ...action.payload]
+    list: [...action.payload]
 });
 
 const filterEmployees = (state, action) => {
@@ -21,7 +28,7 @@ const filterEmployees = (state, action) => {
     }
 };
 
-const getEmplyee = (state, action) => ( {
+const getEmployee = (state, action) => ( {
     ...state,
     employee: action.payload
 });
@@ -31,6 +38,23 @@ const addEmployees = (state, action) => ({
     list: [...action.payload, ...state.list]
 });
 
+const setEmployee = (state, action) => ({
+    ...state,
+    employee: action.payload
+});
+
+const editEmployee = (state, action) => {
+    const event = action.payload;
+    return {
+        ...state,
+        employee: {
+            ...state.employee,
+            [event.target.name]: event.target.value
+        }
+    }
+};
+
+
 export default (state = initalState, action) => {
     switch (action.type) {
         case GET_EMPLOYEES:
@@ -38,9 +62,13 @@ export default (state = initalState, action) => {
         case FILTER_EMPLOYEES:
             return filterEmployees(state, action);
         case GET_EMPLOYEE:
-            return getEmplyee(state, action);
+            return getEmployee(state, action);
         case ADD_EMPLOYEES:
             return addEmployees(state, action);
+        case SET_EMPLOYEE:
+            return setEmployee(state, action);
+        case EDIT_EMPLOYEE:
+            return editEmployee(state, action);
         default:
             return state;
     }

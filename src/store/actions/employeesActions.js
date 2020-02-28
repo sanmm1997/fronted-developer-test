@@ -1,5 +1,12 @@
-import {fetchEmployee, fetchEmployees, removeEmployee, storeEmployee} from "../../utils/api";
-import {ADD_EMPLOYEES, FILTER_EMPLOYEES, GET_EMPLOYEE, GET_EMPLOYEES} from "../types/employeesTypes";
+import {fetchEmployee, fetchEmployees, removeEmployee, storeEmployee, updateEmployee as updaEmployee } from "../../utils/api";
+import {
+    ADD_EMPLOYEES,
+    EDIT_EMPLOYEE,
+    FILTER_EMPLOYEES,
+    GET_EMPLOYEE,
+    GET_EMPLOYEES,
+    SET_EMPLOYEE
+} from "../types/employeesTypes";
 import {toggleLoader} from "./loaderActions";
 import {showResult} from "../../utils/alerts";
 import {saveEmployeeLocalStorage} from "../../utils/localStorage";
@@ -67,10 +74,24 @@ export const addEmployees = (employees) => {
     })
 };
 
-export const editEmployee = (e) => async (dispatch) => {
+export const setEmployee = (employee) => {
+    return ({
+        type: SET_EMPLOYEE,
+        payload: employee
+    })
+};
+
+export const editEmployee = (event) => {
+    return ({
+        type: EDIT_EMPLOYEE,
+        payload: event
+    })
+};
+
+export const updateEmployee = (employee) => async (dispatch) => {
     try {
         dispatch(toggleLoader(true));
-        const data = await storeEmployee(employee);
+        const data = await updaEmployee(employee);
         showResult(data);
         saveEmployeeLocalStorage({...employee, id: data.data.id});
     } catch (e) {

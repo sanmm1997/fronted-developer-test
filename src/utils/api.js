@@ -30,6 +30,15 @@ export const storeEmployee = async (employee) => {
     return await response.json();
 };
 
+export const updateEmployee = async (employee) => {
+    const config = {
+        method: 'PUT',
+        body: JSON.stringify(employee)
+    };
+    const response = await fetch(`${process.env.BASE_URL_API_EMPLOYEES}/update/${employee.id}`, config);
+    return await response.json();
+};
+
 
 export const getHomeData = async () => {
     const response = await fetch(`${process.env.BASE_URL_API_DASHBOARD}`);
