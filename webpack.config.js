@@ -31,7 +31,7 @@ const modules = {
             'sass-loader'
         ],
     }, {
-        test: /\.(jpg|png|gift|woff|eot|ttf|svg|mp4|webm)$/,
+        test: /\.(jpg|png|gift|woff|woff2|eot|ttf|svg|mp4|webm)$/,
         use: {
             loader: 'url-loader',
             options: { limit: 900000, name: 'assets/[hash].[ext]' },
