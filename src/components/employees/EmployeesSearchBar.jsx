@@ -12,7 +12,7 @@ const EmployeesSearchBar = ({ handleSubmit, handleChange, handleClick }) => {
                         className="form-control"
                         onChange={handleChange}
                     >
-                        <option disabled defaultValue>Criterio</option>
+                        <option value="" defaultValue>Criterio</option>
                         <option value="id">Id</option>
                         <option value="employee_name">Nombre</option>
                         <option value="employee_age">Edad</option>

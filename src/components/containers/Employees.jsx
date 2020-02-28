@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
-import { getEmployees, filterEmployees, addEmployees } from "../../store/actions/employeesActions";
+import { getEmployees, filterEmployees, addEmployees, setEmployee } from "../../store/actions/employeesActions";
 import EmployeesList from "../employees/EmployeesList";
 import EmployeesItem from "../employees/EmployeesItem";
 import Container from "../layout/Container";
@@ -18,8 +18,8 @@ const Employees = (props) => {
     const [search, setSearch] = useState(initialSearch);
 
     useEffect(() => {
-        props.getEmployees();
-        props.addEmployees(getEmployeesLocalStorage());
+        getEmployeesApi()
+            .then(() => props.addEmployees(getEmployeesLocalStorage()));
     }, []);
 
     const handleSubmit = (e) => {
@@ -31,9 +31,26 @@ const Employees = (props) => {
         setSearch({...search, [e.target.name]: e.target.value.trim()})
     };
 
-    const handleClick = (e) => {
+    const handleClick = () => {
         setSearch(initialSearch);
-        props.getEmployees();
+        getEmployeesApi()
+            .then(() => props.addEmployees(getEmployeesLocalStorage()));
+    };
+
+    const getEmployeesApi = () => {
+        return new Promise((resolve, reject) => {
+            try {
+                resolve(props.getEmployees());
+            } catch (e) {
+                reject(e);
+            }
+        })
+    };
+
+    const handleEdit = (employeeId) => {
+        const employee = props.employees.list.find((employee) => employee.id == employeeId);
+        props.setEmployee(employee);
+        props.history.push(`/employees/${employeeId}/edit`)
     };
 
     const isValidSearch = () => {
@@ -63,6 +80,7 @@ const Employees = (props) => {
                                 <EmployeesItem
                                     {...employee}
                                     key={employee.id}
+                                    handleEdit={handleEdit}
                                 />)
                             :
                             <tr>
@@ -84,6 +102,7 @@ const mapStateToProps = ({ employeesReducer }) => ({
 });
 
 const mapDispatchToAction = {
+    setEmployee,
     getEmployees,
     addEmployees,
     filterEmployees,

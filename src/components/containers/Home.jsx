@@ -24,7 +24,7 @@ const Home = () => {
                     siguientes tecnologías.</p>
                     <div className="Tools-list row justify-content-center">
                         {tools.map((tool) => (
-                            <div className="Tools-list__item col-3" key={tool.name}>
+                            <div className="Tools-list__item col-3" key={tool.title}>
                                 <h3>{tool.title}</h3>
                                 <img src={tool.image} className="w-100" alt={tool.title}/>
                             </div>

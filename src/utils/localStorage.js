@@ -5,7 +5,7 @@ export const saveEmployeeLocalStorage = (newEmployee) => {
         localStorage.setItem('employees', JSON.stringify([newEmployee, ...oldEmployees]));
     }catch (e) {
         console.error(e)
-    }
+}
 };
 
 export const getEmployeesLocalStorage = () => {

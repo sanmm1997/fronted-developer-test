@@ -23,7 +23,7 @@ const EmployeesItem = (props) => {
             <td>{ props.employee_age }</td>
             <td>{ props.employee_salary }</td>
             <td>
-                <Link to={`/employees/${props.id}/edit`} className="btn btn-sm btn-outline-primary" >Editar</Link>
+                <a onClick={() => props.handleEdit(props.id)} className="btn btn-sm btn-outline-primary" >Editar</a>
                 <a onClick={handleClick} className="btn btn-sm btn-outline-danger" >Borrar</a>
             </td>
         </tr>
