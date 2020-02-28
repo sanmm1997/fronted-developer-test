@@ -6,7 +6,7 @@ import Layout from "../components/layout/Layout";
 import NotFound from "../components/containers/NotFound";
 
 const Router = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         {/* Basic Layout with Header and Footer for render pages */}
         <Layout>
             <Switch>
